@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "VisualStudio Code Extension Manager",
   "main": "index.js",
+  "databasePath": "extensions.db",
   "scripts": {
     "build": "tsc",
     "test": "tsc && npm link && vsc-em"
@@ -26,17 +27,15 @@
   },
   "homepage": "https://github.com/civicwar/vscode-vem#readme",
   "dependencies": {
-    "@types/command-line-usage": "^5.0.1",
     "command-line-args": "^5.0.2",
     "command-line-usage": "^5.0.5",
-    "reflect-metadata": "^0.1.12",
-    "sequelize": "^4.37.7",
-    "sequelize-typescript": "^0.6.4",
     "shelljs": "^0.8.2",
-    "sqlite3": "^4.0.0"
+    "sqlite3": "^4.0.0",
+    "typeorm": "^0.2.6"
   },
   "devDependencies": {
     "@types/command-line-args": "^5.0.0",
+    "@types/command-line-usage": "^5.0.1",
     "@types/node": "^8.10.15",
     "debug": "^3.1.0",
     "typescript": "^2.8.3"

@@ -1,13 +1,21 @@
 #! /usr/bin/env node
-import cmd, { OptionDefinition } from 'command-line-args';
+import cmd from 'command-line-args';
 import usage from 'command-line-usage';
+import 'reflect-metadata';
+import { VisualStudioExManager } from '../src/manager';
+import { VSCodeParams, paramOptions, usageOptions } from '../src/params';
 
-const paramOptions: OptionDefinition[] = [
-  { name: 'set', alias: 's', type: String },
-  { name: 'get', alias: 'g', type: String },
-  { name: 'list', alias: 'l', defaultOption: true }
-];
+const options: VSCodeParams = <VSCodeParams>cmd(paramOptions);
+const manager = new VisualStudioExManager();
 
-const options = cmd(paramOptions);
+if (options.help) {
+  console.log(usage(usageOptions));
+}
 
-console.log(usage(paramOptions));
+if (options.list) {
+  manager.onInit();
+}
+
+if (!!options.install) {
+  manager.install();
+}
