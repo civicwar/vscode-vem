@@ -4,7 +4,8 @@
   "description": "VisualStudio Code Extension Manager",
   "main": "index.js",
   "scripts": {
-    "run": "tsc"
+    "build": "tsc",
+    "test": "tsc && npm link && vsc-em"
   },
   "repository": {
     "type": "git",
@@ -21,13 +22,14 @@
     "url": "https://github.com/civicwar/vscode-vem/issues"
   },
   "bin": {
-    "vscode-vem": "bin/exec.js"
+    "vsc-em": "bin/exec.js"
   },
   "homepage": "https://github.com/civicwar/vscode-vem#readme",
   "dependencies": {
     "shelljs": "^0.8.2"
   },
   "devDependencies": {
+    "@types/node": "^8.10.15",
     "typescript": "^2.8.3"
   }
 }
