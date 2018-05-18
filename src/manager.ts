@@ -1,7 +1,7 @@
 import { exec } from 'child_process';
-import { existsSync, mkdirSync, rmdirSync } from 'fs';
+import { existsSync, mkdirSync } from 'fs';
 import { join } from 'path';
-import { cp } from 'shelljs';
+import { cp, rm } from 'shelljs';
 import { Not, createConnection } from 'typeorm';
 import { DBCONFIG, Extension } from './db';
 import { logError, logInfo } from './utils';
@@ -23,7 +23,7 @@ export class VisualStudioExManager {
           exts.forEach(_e => {
             if (existsSync(_e.path)) {
               console.log(`Removing Folder : ${_e.path}`);
-              rmdirSync(_e.path);
+              rm('-rf', ext.path);
             }
           });
         }
@@ -65,8 +65,7 @@ export class VisualStudioExManager {
         mkdirSync(ext.path);
         logInfo('Create', 'Moving base extensions to new Environment');
         cp('-R', join(base.path, 'extensions/*'), ext.path);
-        console.log(join(base.path, 'extensions/'));
-        logInfo('Create', `Create the Environment ${name} Successfully`);
+        logInfo('Create', `Created the Environment ${name} Successfully`);
       })
       .catch(_e => logError('Create', _e));
   }
@@ -80,7 +79,7 @@ export class VisualStudioExManager {
         logInfo('Remove', `Found : ${ext.name}`);
         logInfo('Remove', `Checking if \x1b[32m${ext.path}\x1b[0m exists...`);
         if (!existsSync(ext.path)) throw new Error('Folder not found...');
-        rmdirSync(ext.path);
+        rm('-rf', ext.path);
 
         await repo.remove(ext);
         logInfo('Remove', 'Removed Successfully');
