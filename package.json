@@ -1,6 +1,6 @@
 {
   "name": "@civicwar/vscode-vem",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "VisualStudio Code Extension Manager",
   "main": "bin/exec.js",
   "scripts": {
@@ -12,7 +12,7 @@
     "url": "git+https://github.com/civicwar/vscode-vem.git"
   },
   "keywords": ["vscode", "extension", "manager"],
-  "author": "civicwar <davidsf@qiteam.org>",
+  "author": "civicwar <davidsf@pantherify.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/civicwar/vscode-vem/issues"
