@@ -2,8 +2,8 @@
 import cmd from 'command-line-args';
 import usage from 'command-line-usage';
 import 'reflect-metadata';
-import { VisualStudioExManager } from '../manager';
-import { VSCodeParams, paramOptions, usageOptions } from '../params';
+import { VisualStudioExManager } from '../src/manager';
+import { VSCodeParams, paramOptions, usageOptions } from '../src/params';
 
 const options: VSCodeParams = <VSCodeParams>cmd(paramOptions, {
   partial: true,
