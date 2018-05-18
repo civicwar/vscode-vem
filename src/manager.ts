@@ -103,4 +103,8 @@ export class VisualStudioExManager {
       console.log(table.toString());
     });
   }
+
+  setEnv(name: string) {}
+
+  useCode(name: string) {}
 }
