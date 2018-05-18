@@ -1,3 +1,4 @@
+import { exec } from 'child_process';
 import { existsSync, mkdirSync, rmdirSync } from 'fs';
 import { join } from 'path';
 import { cp } from 'shelljs';
@@ -63,8 +64,8 @@ export class VisualStudioExManager {
 
         mkdirSync(ext.path);
         logInfo('Create', 'Moving base extensions to new Environment');
-        cp('-R ', join(base.path, 'extensions/'), ext.path);
-
+        cp('-R', join(base.path, 'extensions/*'), ext.path);
+        console.log(join(base.path, 'extensions/'));
         logInfo('Create', `Create the Environment ${name} Successfully`);
       })
       .catch(_e => logError('Create', _e));
@@ -106,5 +107,17 @@ export class VisualStudioExManager {
 
   setEnv(name: string) {}
 
-  useCode(name: string) {}
+  useCode(name: string) {
+    createConnection(DBCONFIG)
+      .then(async _connection => {
+        const repo = _connection.getRepository(Extension);
+
+        const ext = await repo.findOneOrFail({ name: name });
+        if (!existsSync(ext.path)) throw new Error('Folder/Extension not found...');
+
+        logInfo('UseCode', `Starting code with : ${ext.name}@${ext.path}`);
+        exec(`code -n --extensions-dir ${ext.path}`);
+      })
+      .catch(_e => logError('UseCode', _e));
+  }
 }
