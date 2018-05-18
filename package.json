@@ -1,6 +1,6 @@
 {
   "name": "@civicwar/vscode-vem",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "VisualStudio Code Extension Manager",
   "main": "bin/exec.js",
   "scripts": {
