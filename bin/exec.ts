@@ -21,3 +21,7 @@ if (!!options.install) manager.install(options.install);
 if (!!options.new) manager.create(options.new);
 
 if (!!options.rem) manager.remove(options.rem);
+
+if (!!options.set) manager.setEnv(options.set);
+
+if (!!options.use) manager.useCode(options.use);
