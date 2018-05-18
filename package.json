@@ -2,8 +2,7 @@
   "name": "@civicwar/vscode-vem",
   "version": "0.0.1",
   "description": "VisualStudio Code Extension Manager",
-  "main": "index.js",
-  "databasePath": "extensions.db",
+  "main": "bin/exec.js",
   "scripts": {
     "build": "tsc",
     "test": "tsc && npm link && vsc-em"
@@ -12,11 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/civicwar/vscode-vem.git"
   },
-  "keywords": [
-    "vscode",
-    "extension",
-    "manager"
-  ],
+  "keywords": ["vscode", "extension", "manager"],
   "author": "civicwar <davidsf@qiteam.org>",
   "license": "ISC",
   "bugs": {
