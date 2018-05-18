@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/civicwar/vscode-vem#readme",
   "dependencies": {
+    "cli-table2": "^0.2.0",
     "command-line-args": "^5.0.2",
     "command-line-usage": "^5.0.5",
     "shelljs": "^0.8.2",
@@ -34,9 +35,11 @@
     "typeorm": "^0.2.6"
   },
   "devDependencies": {
+    "@types/cli-table2": "^0.2.1",
     "@types/command-line-args": "^5.0.0",
     "@types/command-line-usage": "^5.0.1",
     "@types/node": "^8.10.15",
+    "@types/shelljs": "^0.7.9",
     "debug": "^3.1.0",
     "typescript": "^2.8.3"
   }

@@ -5,17 +5,19 @@ import 'reflect-metadata';
 import { VisualStudioExManager } from '../src/manager';
 import { VSCodeParams, paramOptions, usageOptions } from '../src/params';
 
-const options: VSCodeParams = <VSCodeParams>cmd(paramOptions);
+const options: VSCodeParams = <VSCodeParams>cmd(paramOptions, {
+  partial: true,
+  stopAtFirstUnknown: true
+});
 const manager = new VisualStudioExManager();
 
-if (options.help) {
+if (options.help || options._unknown || Object.keys(options).length === 0)
   console.log(usage(usageOptions));
-}
 
-if (options.list) {
-  manager.onInit();
-}
+if (options.list) manager.list();
 
-if (!!options.install) {
-  manager.install();
-}
+if (!!options.install) manager.install(options.install);
+
+if (!!options.new) manager.create(options.new);
+
+if (!!options.rem) manager.remove(options.rem);

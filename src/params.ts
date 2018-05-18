@@ -52,12 +52,12 @@ export const paramOptions: OptionDefinition[] = [
 
 export interface VSCodeParams extends CommandLineOptions {
   help?: Boolean;
-  rem?: String;
+  rem?: string;
   list?: Boolean;
-  use?: String;
-  new?: String;
-  set?: String;
-  install?: String;
+  use?: string;
+  new?: string;
+  set?: string;
+  install?: string;
 }
 
 export const usageOptions: Section[] = [
