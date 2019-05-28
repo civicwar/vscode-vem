@@ -90,7 +90,7 @@ export class VisualStudioExManager {
   list() {
     createConnection(DBCONFIG).then(async _connection => {
       const repo = _connection.getRepository(Extension);
-      const Table = require('cli-table2');
+      const Table = require('cli-table3');
       const table = new Table({
         head: ['Name', 'Path']
       });
